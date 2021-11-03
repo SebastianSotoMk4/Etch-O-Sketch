@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ColorDialog = New System.Windows.Forms.ColorDialog()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -48,4 +49,5 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ColorDialog As ColorDialog
 End Class
