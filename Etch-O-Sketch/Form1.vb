@@ -76,7 +76,7 @@
         Me.Text = $"{e.X} {e.Y} Button:{e.Button}"
     End Sub
 
-    Private Sub PictureBox1_MouseDown(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseDown
+    Private Sub PictureBox1_MouseDown(sender As Object, e As MouseEventArgs) 'Handles PictureBox1.MouseDown
         Static oldX As Integer
         Static oldY As Integer
 
@@ -95,7 +95,47 @@
         Dim g As Graphics = PictureBox1.CreateGraphics
         g.Clear(Me.backGroundColor)
         g.Dispose()
+    End Sub
 
+    Private Sub BackgroundColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackgroundColorToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click
+        Clear()
+        ShakeMe()
+    End Sub
+
+    Private Sub PenColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PenColorToolStripMenuItem.Click
+        ColorDialog.ShowDialog()
+        Me.penColor = ColorDialog.Color
+    End Sub
+
+    Sub ShakeMe()
+        Dim original = Location
+        Dim offset As Integer = 10
+
+        'My.Computer.Audio.Play(My.Resources.Shaker, AudioPlayMode.Background)
+
+        For i = 0 To 10
+            offset *= -1
+            Me.Top += offset
+            Me.Left += offset
+            System.Threading.Thread.Sleep(100)
+        Next
+        Location = original
+
+
+    End Sub
+    Public Sub Shake()
+        Dim original = Location
+        Dim rnd = New Random(1337)
+        Const shake_amplitude As Integer = 10
+        For i As Integer = 0 To 9
+            Location = New Point(original.X + rnd.[Next](-shake_amplitude, shake_amplitude), original.Y + rnd.[Next](-shake_amplitude, shake_amplitude))
+            System.Threading.Thread.Sleep(20)
+        Next
+        Location = original
 
     End Sub
 End Class
