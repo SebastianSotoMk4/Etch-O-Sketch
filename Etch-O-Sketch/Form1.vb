@@ -52,6 +52,7 @@
         'DrawLine()
         'DrawCircle()
         'DrawRcectangle()
+        DrawDivisions()
 
     End Sub
 
@@ -124,6 +125,33 @@
             System.Threading.Thread.Sleep(100)
         Next
         Location = original
+
+
+    End Sub
+    Sub DrawDivisions()
+        Dim xmid As Integer = PictureBox1.Width \ 2
+        Dim ymid As Integer = PictureBox1.Height \ 2
+        Dim xLast As Integer = xmid
+        Dim yLast As Integer = ymid
+        Dim offset As Integer = 100
+
+        Dim xOffset As Integer = CInt(100 * Math.Cos((Math.PI / 180) * 135))
+        Dim yOffset As Integer = CInt(100 * Math.Cos((Math.PI / 180) * 135))
+
+
+        'PictureBox1.
+        'DrawLine(0, 0, PictureBox1.Width, PictureBox1.Height)
+        'DrawLine(xmid, ymid, xmid + xOffset, ymid + yOffset)
+        'DrawLine(0, ymid, PictureBox1.Width, ymid)
+        'DrawLine(xmid, 0, xmid, PictureBox1.Height)
+        For i = 0 To PictureBox1.Height Step PictureBox1.Height \ 8
+            DrawLine(0, i, PictureBox1.Width, i)
+
+        Next
+        For i = 0 To PictureBox1.Width Step PictureBox1.Width \ 10
+            DrawLine(i, 0, i, PictureBox1.Height)
+
+        Next
 
 
     End Sub
