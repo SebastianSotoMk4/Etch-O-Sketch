@@ -186,6 +186,8 @@ Public Class EtchASketchForm
         g.Clear(Me.backGroundColor)
     End Sub
 
+
+    'opens a message Box when the about button is clicked
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         MsgBox($"Made By: Sebastian Soto{vbNewLine}Semester: Fall 2021")
     End Sub
