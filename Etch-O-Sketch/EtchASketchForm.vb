@@ -11,7 +11,7 @@ Public Class EtchASketchForm
     Dim y As Integer
     'Stores Color for the pen and back grouond
     Dim penColor As Color = Color.Black
-    Dim backGroundColor As Color = Color.White
+    Dim backGroundColor As Color = Color.LightGray
 
 
     'The DrawLine Sub is used for the LeftClick to draw function
@@ -30,10 +30,6 @@ Public Class EtchASketchForm
         Me.x = e.X
         Me.y = e.Y
         Me.Text = $"{e.X} {e.Y} Button:{e.Button}"
-        If e.Button.ToString = "Middle" Then
-            PenColorSelect()
-
-        End If
     End Sub
 
 
@@ -105,10 +101,54 @@ Public Class EtchASketchForm
 
         Next
     End Sub
-    Private Sub DrawWaveFormsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrawWaveFormsToolStripMenuItem.Click
-
+    Sub DrawSine()
+        Dim x As Double
+        Dim y As Double
+        Me.penColor = Color.Purple
+        For r As Double = 0 To PictureBox1.Width
+            y = (Math.Sin(r / 250 * 2 * Math.PI) * 100 + 100) + 30
+            x = r
+            DrawLine(CInt(x), CInt(y), CInt(x + 1), CInt(y))
+        Next
+        Me.penColor = Color.Black
     End Sub
+    Sub DrawCosine()
+        Dim x As Double
+        Dim y As Double
+        Me.penColor = Color.Green
+        For r As Double = 0 To PictureBox1.Width
+            y = (Math.Cos(r / 250 * 2 * Math.PI) * 100 + 100) + (PictureBox1.Height / 3)
+            x = r
+            DrawLine(CInt(x), CInt(y), CInt(x + 1), CInt(y))
+        Next
+        Me.penColor = Color.Black
+    End Sub
+    Sub DrawTan()
+        Dim x As Double
+        Dim y As Double
+        Me.penColor = Color.Red
+        For r As Double = 0 To PictureBox1.Width
+            y = (Math.Tan(r / 250 * 2 * Math.PI) * 50 + 50) + (PictureBox1.Height - (PictureBox1.Height / 3))
 
+            x = r
+            DrawLine(CInt(x), CInt(y), CInt(x + 1), CInt(y))
+        Next
+        Me.penColor = Color.Black
+    End Sub
+    Private Sub DrawWaveFormButton_Click(sender As Object, e As EventArgs) Handles DrawWaveFormButton.Click
+        Clear()
+        DrawDivisions()
+        DrawSine()
+        DrawCosine()
+        DrawTan()
+    End Sub
+    Private Sub DrawWaveFormsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrawWaveFormsToolStripMenuItem.Click
+        Clear()
+        DrawDivisions()
+        DrawSine()
+        DrawCosine()
+        DrawTan()
+    End Sub
 
 
     'These subs close the program when the either exit button is called
@@ -145,7 +185,6 @@ Public Class EtchASketchForm
         Me.backGroundColor = ColorDialog.Color
         g.Clear(Me.backGroundColor)
     End Sub
-
 End Class
 'https://docs.google.com/document/d/1VtPGln_UJFIVC9V-YtjGkQpsvjmT8OCodmGTqBEf1os/edit
 'Public Sub DrawString()

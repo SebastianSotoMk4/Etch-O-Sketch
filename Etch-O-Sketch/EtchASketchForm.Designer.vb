@@ -88,6 +88,7 @@ Partial Class EtchASketchForm
         '
         'SelectColorButton
         '
+        Me.SelectColorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.SelectColorButton.Location = New System.Drawing.Point(12, 422)
         Me.SelectColorButton.Name = "SelectColorButton"
         Me.SelectColorButton.Size = New System.Drawing.Size(93, 36)
@@ -98,6 +99,7 @@ Partial Class EtchASketchForm
         '
         'DrawWaveFormButton
         '
+        Me.DrawWaveFormButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.DrawWaveFormButton.Location = New System.Drawing.Point(111, 422)
         Me.DrawWaveFormButton.Name = "DrawWaveFormButton"
         Me.DrawWaveFormButton.Size = New System.Drawing.Size(93, 36)
@@ -108,6 +110,7 @@ Partial Class EtchASketchForm
         '
         'ClearButton
         '
+        Me.ClearButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.ClearButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ClearButton.Location = New System.Drawing.Point(210, 422)
         Me.ClearButton.Name = "ClearButton"
@@ -119,6 +122,7 @@ Partial Class EtchASketchForm
         '
         'ExitButton
         '
+        Me.ExitButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.ExitButton.Location = New System.Drawing.Point(309, 422)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(93, 36)
