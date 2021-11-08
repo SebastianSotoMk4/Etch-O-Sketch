@@ -1,7 +1,7 @@
 ﻿'Sebastian Soto
 'RCET0265
 'Fall 2021
-'Etch A Sketch
+'Etch o Sketch
 'https://github.com/SebastianSotoMk4/Etch-O-Sketch.git
 Option Strict On
 Option Explicit On
@@ -59,8 +59,7 @@ Public Class EtchASketchForm
         Clear()
     End Sub
 
-
-    'Might need sound
+    'Shakes the window when called.
     Sub Shake()
         Dim original = Location
         Dim offset As Integer = 10
@@ -105,9 +104,9 @@ Public Class EtchASketchForm
         Dim x As Double
         Dim y As Double
         Me.penColor = Color.Purple
-        For r As Double = 0 To PictureBox1.Width
-            y = (Math.Sin(r / 250 * 2 * Math.PI) * 100 + 100) + 30
-            x = r
+        For b As Double = 0 To PictureBox1.Width
+            y = (Math.Sin(b / 250 * 2 * Math.PI) * 100 + 100) + 30
+            x = b
             DrawLine(CInt(x), CInt(y), CInt(x + 1), CInt(y))
         Next
         Me.penColor = Color.Black
@@ -116,9 +115,9 @@ Public Class EtchASketchForm
         Dim x As Double
         Dim y As Double
         Me.penColor = Color.Green
-        For r As Double = 0 To PictureBox1.Width
-            y = (Math.Cos(r / 250 * 2 * Math.PI) * 100 + 100) + (PictureBox1.Height / 3)
-            x = r
+        For q As Double = 0 To PictureBox1.Width
+            y = (Math.Cos(q / 250 * 2 * Math.PI) * 100 + 100) + (PictureBox1.Height / 3)
+            x = q
             DrawLine(CInt(x), CInt(y), CInt(x + 1), CInt(y))
         Next
         Me.penColor = Color.Black
@@ -127,10 +126,10 @@ Public Class EtchASketchForm
         Dim x As Double
         Dim y As Double
         Me.penColor = Color.Red
-        For r As Double = 0 To PictureBox1.Width
-            y = (Math.Tan(r / 250 * 2 * Math.PI) * 50 + 50) + (PictureBox1.Height - (PictureBox1.Height / 3))
+        For u As Double = 0 To PictureBox1.Width
+            y = (Math.Tan(u / 250 * 2 * Math.PI) * 50 + 50) + (PictureBox1.Height - (PictureBox1.Height / 3))
 
-            x = r
+            x = u
             DrawLine(CInt(x), CInt(y), CInt(x + 1), CInt(y))
         Next
         Me.penColor = Color.Black
